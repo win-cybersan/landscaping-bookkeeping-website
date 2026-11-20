@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Landscaping Contractor Bookkeeping & Job Costing | Precise Ledger</title>
+  <meta name="description" content="Bookkeeping and financial operations support for landscaping contractors. Organize books, monitor unpaid invoices, and understand job costs.">
+  <meta name="theme-color" content="#173b2b">
+  <meta property="og:title" content="Know Where Your Money Goes. Know Which Jobs Make Money.">
+  <meta property="og:description" content="Financial clarity built for landscaping and outdoor-service contractors.">
+  <meta property="og:type" content="website">
+  <style>
+    :root {
+      --green:#173b2b; --green2:#24543d; --sage:#b7cdb9; --sage-light:#edf3ed;
+      --cream:#f7f7f2; --gold:#c5a46d; --ink:#202823; --muted:#66736b;
+      --white:#fff; --border:#e2e8e1; --shadow:0 16px 40px rgba(23,59,43,.09);
+      --radius:22px; --max:1160px;
+    }
+    * {box-sizing:border-box}
+    html {scroll-behavior:smooth}
+    body {margin:0;background:var(--cream);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}
+    a {color:inherit}
+    img {max-width:100%}
+    .container {width:min(var(--max),calc(100% - 40px));margin:auto}
+    .topbar {background:var(--green);color:#e8f0e8;font-size:.9rem;padding:9px 0;text-align:center}
+    header {background:rgba(247,247,242,.95);position:sticky;top:0;z-index:20;border-bottom:1px solid var(--border);backdrop-filter:blur(10px)}
+    .nav {display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0}
+    .brand {display:flex;align-items:center;gap:11px;text-decoration:none;font-weight:800;letter-spacing:.02em;color:var(--green)}
+    .brandmark {display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:var(--green);color:white;font-size:1.2rem}
+    .navlinks {display:flex;gap:24px;align-items:center}
+    .navlinks a {text-decoration:none;font-size:.92rem;color:#39483f}
+    .navlinks a:hover {color:var(--green2)}
+    .btn {display:inline-flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;border:0;border-radius:999px;padding:13px 22px;font-weight:750;line-height:1.35;cursor:pointer;transition:.2s ease;font-size:.95rem}
+    .btn-primary {background:var(--green);color:white;box-shadow:0 8px 18px rgba(23,59,43,.15)}
+    .btn-primary:hover {background:var(--green2);transform:translateY(-1px)}
+    .btn-light {background:white;color:var(--green);border:1px solid var(--border)}
+    .btn-light:hover {border-color:var(--green)}
+    .btn-outline {border:1px solid #c9d8cb;color:var(--green);background:transparent}
+    .btn-outline:hover {background:var(--sage-light)}
+    .hero {padding:76px 0 64px;background:linear-gradient(135deg,#edf3ed 0%,#f7f7f2 62%,#e7eee5 100%);overflow:hidden}
+    .hero-grid {display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:54px}
+    .eyebrow {color:var(--green2);font-size:.78rem;letter-spacing:.13em;font-weight:850;text-transform:uppercase}
+    h1,h2,h3 {line-height:1.2;letter-spacing:-.035em}
+    h1 {font-size:clamp(2.5rem,5.5vw,4.5rem);margin:14px 0 20px;color:var(--green)}
+    h2 {font-size:clamp(1.9rem,4vw,3rem);margin:0 0 16px;color:var(--green)}
+    h3 {font-size:1.25rem;margin:0 0 12px;color:var(--green)}
+    p {margin:0 0 16px}
+    .lead {font-size:1.12rem;color:#45544b;max-width:680px}
+    .hero-actions {display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 18px}
+    .trust {font-size:.92rem;color:var(--muted)}
+    .hero-art {position:relative;min-height:420px;border-radius:28px;background:linear-gradient(145deg,#244b36,#122b20);padding:24px;box-shadow:var(--shadow);overflow:hidden}
+    .hero-art:before {content:"";position:absolute;inset:auto -35px -65px auto;width:260px;height:260px;border:1px solid rgba(255,255,255,.18);border-radius:50%}
+    .hero-art:after {content:"";position:absolute;inset:20px auto auto -60px;width:190px;height:190px;border:1px solid rgba(255,255,255,.12);border-radius:50%}
+    .mock-dashboard {position:relative;z-index:1;background:#f9fbf8;border-radius:20px;padding:20px;color:var(--ink);margin-top:30px;transform:rotate(-2deg)}
+    .mock-top {display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--muted);margin-bottom:16px}
+    .mock-stats {display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .stat {background:#eef4ee;padding:15px;border-radius:13px}
+    .stat small {display:block;color:var(--muted);font-size:.72rem}
+    .stat strong {display:block;font-size:1.25rem;color:var(--green)}
+    .bars {height:125px;display:flex;align-items:end;gap:10px;padding:15px 4px 0;border-bottom:1px solid #d9e3d9;margin:15px 0}
+    .bar {flex:1;background:#87a98b;border-radius:6px 6px 0 0}
+    .bar:nth-child(2n) {background:#355e43}
+    .mock-note {color:#dce9dc;font-size:.85rem;margin:12px 0 0;position:relative;z-index:1}
+    section {padding:78px 0}
+    .section-intro {max-width:760px;margin-bottom:36px}
+    .section-intro p {font-size:1.05rem;color:var(--muted)}
+    .problem {background:white}
+    .problem-grid {display:grid;grid-template-columns:.9fr 1.1fr;gap:42px;align-items:center}
+    .problem-visual {background:#e7eee5;border-radius:var(--radius);padding:34px;min-height:320px;display:grid;place-items:center}
+    .leaf-illustration {font-size:6rem;filter:grayscale(.2)}
+    .pain-list,.check-list {padding:0;margin:0;list-style:none}
+    .pain-list li,.check-list li {padding:12px 0;border-bottom:1px solid var(--border);display:flex;gap:12px}
+    .pain-list li:before {content:"•";font-size:1.4rem;color:#b07b47;line-height:1}
+    .check-list li:before {content:"✓";font-weight:900;color:var(--green);line-height:1.5}
+    .services {background:var(--sage-light)}
+    .cards {display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .card {background:white;border:1px solid var(--border);border-radius:var(--radius);padding:28px;box-shadow:0 8px 24px rgba(23,59,43,.04)}
+    .card-icon {width:56px;height:56px;display:grid;place-items:center;background:var(--sage-light);border-radius:16px;font-size:1.65rem;margin-bottom:20px}
+    .card p {color:var(--muted)}
+    .card ul {padding-left:20px;margin:16px 0 0}
+    .card li {padding:5px 0}
+    .who {background:white}
+    .audience {display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .audience-card {background:var(--cream);border:1px solid var(--border);border-radius:18px;padding:24px}
+    .audience-card .emoji {font-size:2rem;margin-bottom:12px}
+    .audience-card p {font-size:.95rem;color:var(--muted);margin:0}
+    .fit {margin-top:36px;background:var(--green);color:white;border-radius:var(--radius);padding:32px}
+    .fit h3 {color:white}
+    .fit ul {display:grid;grid-template-columns:1fr 1fr;gap:12px 25px;list-style:none;padding:0;margin:0}
+    .fit li:before {content:"✓ ";color:var(--sage);font-weight:900}
+    .process {background:var(--cream)}
+    .steps {display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+    .step {background:white;border:1px solid var(--border);border-radius:18px;padding:22px 18px}
+    .step-num {width:42px;height:42px;border-radius:50%;background:var(--green);color:white;display:grid;place-items:center;font-weight:850;margin-bottom:14px}
+    .step p {font-size:.92rem;color:var(--muted);margin:0}
+    .form-section {background:var(--sage-light)}
+    .form-grid {display:grid;grid-template-columns:.8fr 1.2fr;gap:44px;align-items:start}
+    .form-side {position:sticky;top:100px}
+    .form-side .mini-benefits {background:var(--green);color:white;padding:26px;border-radius:var(--radius);margin-top:26px}
+    .mini-benefits h3 {color:white}
+    .form-card {background:white;border-radius:var(--radius);padding:34px;box-shadow:var(--shadow)}
+    form {display:grid;grid-template-columns:1fr 1fr;gap:17px}
+    .field {display:flex;flex-direction:column;gap:7px}
+    .field.full {grid-column:1/-1}
+    label {font-weight:700;font-size:.9rem}
+    input,select,textarea {font:inherit;border:1px solid #cfd9d1;border-radius:10px;padding:12px 13px;background:white;color:var(--ink);width:100%}
+    input:focus,select:focus,textarea:focus {outline:3px solid #dce9dc;border-color:var(--green)}
+    textarea {min-height:115px;resize:vertical}
+    .consent {display:flex;flex-direction:row;align-items:flex-start;gap:10px;font-weight:400}
+    .consent input {width:auto;margin-top:5px}
+    .privacy {font-size:.84rem;color:var(--muted)}
+    .faq {background:white}
+    .faq-list {max-width:850px;margin:auto}
+    details {border-bottom:1px solid var(--border);padding:20px 0}
+    summary {font-weight:750;cursor:pointer;color:var(--green);font-size:1.05rem}
+    details p {margin:13px 0 0;color:var(--muted)}
+    .final-cta {background:var(--green);color:white;text-align:center;padding:76px 0}
+    .final-cta h2 {color:white;max-width:850px;margin:0 auto 20px}
+    .final-cta p {color:#e0ece1;max-width:740px;margin:0 auto 28px}
+    .final-cta .btn {background:var(--sage);color:var(--green)}
+    footer {background:#10281d;color:#d9e5db;padding:34px 0}
+    .footer-grid {display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+    footer a {color:#d9e5db}
+    .footer-small {font-size:.85rem;color:#b5c7b8;margin-top:12px}
+    .mobile-cta {display:none}
+    @media(max-width:900px) {
+      .hero-grid,.problem-grid,.form-grid {grid-template-columns:1fr}
+      .hero-art {min-height:360px}
+      .cards {grid-template-columns:1fr}
+      .audience {grid-template-columns:repeat(2,1fr)}
+      .steps {grid-template-columns:repeat(2,1fr)}
+      .form-side {position:static}
+      .navlinks {display:none}
+    }
+    @media(max-width:600px) {
+      .container {width:min(var(--max),calc(100% - 28px))}
+      .hero {padding:48px 0}
+      section {padding:55px 0}
+      .hero-actions {display:grid}
+      .hero-art {padding:18px;min-height:310px}
+      .mock-dashboard {padding:15px;margin-top:22px}
+      .audience,.steps {grid-template-columns:1fr}
+      .fit ul {grid-template-columns:1fr}
+      .form-card {padding:22px}
+      form {grid-template-columns:1fr}
+      .field.full {grid-column:auto}
+      .nav .btn {display:none}
+      .mobile-cta {display:block;position:fixed;bottom:12px;left:12px;right:12px;z-index:30}
+      .mobile-cta .btn {width:100%;box-shadow:0 8px 30px rgba(0,0,0,.25)}
+      footer {padding-bottom:90px}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">Bookkeeping &amp; financial operations for landscaping and outdoor-service contractors</div>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Precise Ledger home"><span class="brandmark">PL</span><span>PRECISE LEDGER</span></a>
+      <nav class="navlinks" aria-label="Main navigation">
+        <a href="#services">Services</a><a href="#who">Who I Help</a><a href="#process">How It Works</a><a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn btn-primary" href="#contact">Free Financial Check-In</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Financial operations for landscaping contractors</div>
+          <h1>Know Where Your Money Goes. Know Which Jobs Make Money.</h1>
+          <p class="lead">You work hard to complete projects, manage crews, buy materials, and keep customers happy. I help landscaping contractors organize their financial records, monitor customer payments, and compare project costs with actual results—so you can make better business decisions.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Book My Free 30-Minute Financial Check-In</a>
+            <a class="btn btn-outline" href="#services">See How I Can Help</a>
+          </div>
+          <p class="trust">Serving landscaping and outdoor-service contractors across the United States.</p>
+        </div>
+        <div class="hero-art" aria-label="Illustration of a financial dashboard">
+          <div class="mock-dashboard">
+            <div class="mock-top"><strong>Business snapshot</strong><span>Sample dashboard</span></div>
+            <div class="mock-stats">
+              <div class="stat"><small>Income tracked</small><strong>Organized</strong></div>
+              <div class="stat"><small>Invoices due</small><strong>Visible</strong></div>
+              <div class="stat"><small>Job costs</small><strong>Compared</strong></div>
+              <div class="stat"><small>Reports</small><strong>Ready to review</strong></div>
+            </div>
+            <div class="bars" aria-hidden="true">
+              <div class="bar" style="height:42%"></div><div class="bar" style="height:74%"></div><div class="bar" style="height:58%"></div><div class="bar" style="height:91%"></div><div class="bar" style="height:68%"></div><div class="bar" style="height:82%"></div>
+            </div>
+            <small>Illustrative visual only—not actual client data.</small>
+          </div>
+          <p class="mock-note">Clear records. Better visibility. More informed decisions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="problem">
+      <div class="container problem-grid">
+        <div class="problem-visual"><div class="leaf-illustration" aria-hidden="true">🌿</div></div>
+        <div>
+          <div class="eyebrow">The everyday challenge</div>
+          <h2>Are your landscaping books making it hard to know if you’re actually profitable?</h2>
+          <p>Running a landscaping business means managing more than lawns, gardens, and projects. You're handling customer payments, payroll, materials, equipment, fuel, and daily expenses. When the records aren't organized, it's hard to see what's happening behind the work.</p>
+          <ul class="pain-list">
+            <li><span><strong>Disorganized records.</strong> Receipts, invoices, bank transactions, and expenses are scattered across files and systems.</span></li>
+            <li><span><strong>Unpaid invoices.</strong> You aren't sure who still owes you, how long balances have been outstanding, or what needs follow-up.</span></li>
+            <li><span><strong>Unclear job profitability.</strong> Your estimates look reasonable, but you don't know if actual projects made the profit you expected.</span></li>
+            <li><span><strong>Hidden project costs.</strong> Labor, materials, fuel, equipment, and subcontractors may be costing more than planned.</span></li>
+            <li><span><strong>No clear picture.</strong> You may not know which services, crews, or types of jobs are contributing most to your business.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-intro">
+          <div class="eyebrow">Three areas of support</div>
+          <h2>Financial clarity built for landscaping contractors</h2>
+          <p>Practical financial support to get your records in order, stay on top of customer payments, and understand how your projects perform.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">📚</div>
+            <h3>01. Regain Financial Control</h3>
+            <p>Get your financial records back in order and build a clearer, more dependable picture of your business.</p>
+            <ul>
+              <li>Organize and clean up disorganized financial records</li>
+              <li>Reconcile bank and credit-card accounts</li>
+              <li>Create a clear structure for income and expenses</li>
+              <li>Provide reliable monthly financial reports</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">💵</div>
+            <h3>02. Improve Cash Collection Visibility</h3>
+            <p>Know who owes you and which invoices need attention—without relying on memory or scattered notes.</p>
+            <ul>
+              <li>Track unpaid and overdue customer invoices</li>
+              <li>Review accounts receivable aging</li>
+              <li>Identify customers and invoices that need follow-up</li>
+              <li>Create a simple invoice follow-up process</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">📊</div>
+            <h3>03. Make Better Pricing Decisions</h3>
+            <p>Compare estimated project costs with actual expenses to identify jobs and pricing patterns that deserve attention.</p>
+            <ul>
+              <li>Set up job costing for landscaping projects</li>
+              <li>Track labor, materials, equipment, subcontractors, and other direct job costs</li>
+              <li>Compare estimated project costs with actual results</li>
+              <li>Identify jobs, service types, or pricing patterns that may need attention</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="who" id="who">
+      <div class="container">
+        <div class="section-intro">
+          <div class="eyebrow">Who I work with</div>
+          <h2>Built for landscaping contractors who want numbers they can use</h2>
+          <p>Designed for small and growing landscaping businesses that need a better handle on financial operations.</p>
+        </div>
+        <div class="audience">
+          <article class="audience-card"><div class="emoji" aria-hidden="true">🌱</div><h3>Lawn Care &amp; Maintenance</h3><p>Recurring mowing, seasonal maintenance, fertilization, lawn treatments, and property upkeep.</p></article>
+          <article class="audience-card"><div class="emoji" aria-hidden="true">🧱</div><h3>Installation &amp; Hardscape</h3><p>Patios, retaining walls, outdoor living projects, landscaping renovations, and installations.</p></article>
+          <article class="audience-card"><div class="emoji" aria-hidden="true">💧</div><h3>Irrigation Contractors</h3><p>Irrigation installation, repair, maintenance, sprinkler systems, and water management.</p></article>
+          <article class="audience-card"><div class="emoji" aria-hidden="true">🌳</div><h3>Tree Care &amp; Outdoor Specialists</h3><p>Tree trimming, removal, cleanup, and related outdoor property services.</p></article>
+        </div>
+        <div class="fit">
+          <h3>This may be the right fit if:</h3>
+          <ul>
+            <li>Your books are behind or disorganized.</li>
+            <li>You have outstanding customer invoices to monitor.</li>
+            <li>You want to understand what your jobs actually cost.</li>
+            <li>You prepare estimates but rarely compare them to actual results.</li>
+            <li>You use QuickBooks, spreadsheets, receipts, or a mix of systems.</li>
+            <li>You need better financial visibility as your business grows.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="process" id="process">
+      <div class="container">
+        <div class="section-intro">
+          <div class="eyebrow">A straightforward process</div>
+          <h2>A simple path from financial confusion to clarity</h2>
+          <p>Start with a conversation about your business. Together, we'll identify what needs attention and discuss practical next steps.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><div class="step-num">1</div><h3>Submit your inquiry</h3><p>Tell me a little about your landscaping business and current financial challenges.</p></article>
+          <article class="step"><div class="step-num">2</div><h3>Get answers quickly</h3><p>I'll review your inquiry and respond with the next step.</p></article>
+          <article class="step"><div class="step-num">3</div><h3>Schedule your consultation</h3><p>Choose a convenient time for your free 30-minute financial check-in.</p></article>
+          <article class="step"><div class="step-num">4</div><h3>Complete a short intake form</h3><p>Share relevant details about your books, invoices, projects, and processes.</p></article>
+          <article class="step"><div class="step-num">5</div><h3>Meet for your check-in</h3><p>Discuss concerns, identify areas needing attention, and explore practical improvements.</p></article>
+        </div>
+        <p style="margin-top:28px"><strong>After your consultation, you'll receive a clear recommendation and suggested next steps based on your business needs.</strong></p>
+      </div>
+    </section>
+
+    <section class="form-section" id="contact">
+      <div class="container form-grid">
+        <div class="form-side">
+          <div class="eyebrow">Let's start with your business</div>
+          <h2>Tell me about your landscaping business</h2>
+          <p>Complete the form so I can better understand your business and what you need help with. I'll follow up about your inquiry and consultation.</p>
+          <div class="mini-benefits">
+            <h3>Your free 30-minute check-in</h3>
+            <ul class="check-list">
+              <li>Discuss your current bookkeeping challenges</li>
+              <li>Review invoice and cash visibility concerns</li>
+              <li>Talk through job cost and pricing questions</li>
+              <li>Identify practical next steps</li>
+            </ul>
+          </div>
+        </div>
+        <div class="form-card">
+          <!-- FORM SETUP: replace the action URL with your Formspree endpoint (instructions in README). -->
+          <form id="inquiryForm" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST">
+            <div class="field"><label for="name">Full name *</label><input id="name" name="name" autocomplete="name" required></div>
+            <div class="field"><label for="business">Business name *</label><input id="business" name="business_name" required></div>
+            <div class="field"><label for="email">Email address *</label><input id="email" type="email" name="email" autocomplete="email" required></div>
+            <div class="field"><label for="phone">Phone number</label><input id="phone" type="tel" name="phone" autocomplete="tel"></div>
+            <div class="field"><label for="location">Business location / state *</label><input id="location" name="business_location" placeholder="City, State" required></div>
+            <div class="field"><label for="website">Website or Google Business Profile</label><input id="website" type="url" name="website" placeholder="https://"></div>
+            <div class="field"><label for="business_type">Type of landscaping business *</label>
+              <select id="business_type" name="business_type" required><option value="">Select one</option><option>Maintenance</option><option>Installation / hardscape</option><option>Lawn care</option><option>Irrigation</option><option>Tree care</option><option>Other</option></select>
+            </div>
+            <div class="field"><label for="revenue">Approximate annual revenue</label>
+              <select id="revenue" name="annual_revenue"><option value="">Select a range</option><option>Under $250K</option><option>$250K–$500K</option><option>$500K–$1M</option><option>$1M–$5M</option><option>Over $5M</option></select>
+            </div>
+            <div class="field"><label for="software">Accounting software</label>
+              <select id="software" name="accounting_software"><option value="">Select one</option><option>QuickBooks Online</option><option>QuickBooks Desktop</option><option>Xero</option><option>Spreadsheets</option><option>Other</option><option>None</option></select>
+            </div>
+            <div class="field"><label for="challenge">Biggest challenge *</label>
+              <select id="challenge" name="biggest_challenge" required><option value="">Select one</option><option>Disorganized records</option><option>Unpaid invoices</option><option>Job pricing / profitability</option><option>All of the above</option><option>Other</option></select>
+            </div>
+            <div class="field full"><label for="details">Briefly describe your situation</label><textarea id="details" name="situation" placeholder="What is happening in your business, and what would you like to improve?"></textarea></div>
+            <div class="field full"><label for="time">Preferred consultation time</label>
+              <select id="time" name="preferred_time"><option value="">Select one</option><option>Morning</option><option>Afternoon</option><option>Flexible</option></select>
+            </div>
+            <div class="field full"><label class="consent"><input type="checkbox" name="contact_consent" value="Agreed" required><span>I agree to be contacted about my inquiry. *</span></label></div>
+            <div class="field full"><p class="privacy">Your information is used only to respond to your inquiry and schedule your consultation.</p></div>
+            <div class="field full"><button class="btn btn-primary" type="submit">Request My Free Financial Check-In</button></div>
+            <div class="field full" id="formStatus" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-intro" style="margin:auto auto 35px;text-align:center">
+          <div class="eyebrow">Questions, answered</div>
+          <h2>Frequently asked questions</h2>
+        </div>
+        <div class="faq-list">
+          <details><summary>What types of landscaping businesses do you help?</summary><p>I work with landscaping and outdoor-service contractors, including lawn care and maintenance businesses, landscape installation and hardscape contractors, irrigation specialists, tree care businesses, and other outdoor-service providers.</p></details>
+          <details><summary>Do you work with QuickBooks?</summary><p>I can work with QuickBooks Online and QuickBooks Desktop, depending on your business setup and the scope of the engagement. I can also work with spreadsheets and other existing records as needed.</p></details>
+          <details><summary>My books are behind or messy. Can you help?</summary><p>Catch-up bookkeeping and financial record cleanup are areas of support. We'll first assess the condition of your records, identify what needs organizing or reconciling, and determine a practical approach.</p></details>
+          <details><summary>Can you help me see unpaid customer invoices?</summary><p>Yes. I can organize and monitor accounts receivable, review aging balances, identify outstanding invoices, and help establish a consistent process for tracking and follow-up.</p></details>
+          <details><summary>Can you help me understand whether my jobs are profitable?</summary><p>Yes. By organizing job-related expenses and comparing estimated costs against actual results, we can develop a clearer view of project performance and identify areas where estimates, expenses, or pricing may need attention.</p></details>
+          <details><summary>What is job costing?</summary><p>Job costing tracks expenses associated with a specific project. For landscaping contractors, this may include labor, materials, equipment, subcontractors, and other direct costs. It helps compare what you expected to spend with what you actually spent.</p></details>
+          <details><summary>How much does it cost?</summary><p>Pricing depends on the condition of your books, transaction volume, services needed, and complexity of your operations. After our initial check-in, I can recommend a scope of work and provide a pricing proposal.</p></details>
+          <details><summary>Is my financial information confidential?</summary><p>Your business financial information is treated as confidential and handled with care. Information is used for purposes related to agreed services and communication, subject to applicable engagement terms and privacy practices.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container">
+        <h2>Get clarity on your books, cash, and job profitability.</h2>
+        <p>Your landscaping business deserves financial records that help you understand where your money goes, who owes you, and how your projects are performing. Let's take 30 minutes to discuss where your business stands and what you can do next.</p>
+        <a class="btn" href="#contact">Book My Free 30-Minute Financial Check-In</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong>PRECISE LEDGER</strong>
+        <div class="footer-small">Financial operations support for landscaping contractors.</div>
+      </div>
+      <div><a href="#services">Services</a> &nbsp;·&nbsp; <a href="#contact">Contact</a> &nbsp;·&nbsp; <a href="#faq">FAQ</a></div>
+    </div>
+    <div class="container footer-small">© <span id="year"></span> Precise Ledger. All rights reserved. This website provides bookkeeping and financial operations services; scope and availability are subject to engagement agreement.</div>
+  </footer>
+
+  <div class="mobile-cta"><a class="btn btn-primary" href="#contact">Free 30-Minute Financial Check-In</a></div>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    // Formspree handles submission when a valid endpoint is configured.
+    const form = document.getElementById("inquiryForm");
+    const status = document.getElementById("formStatus");
+    form.addEventListener("submit", function(e) {
+      const action = form.getAttribute("action") || "";
+      if (action.includes("REPLACE_WITH_YOUR_FORM_ID")) {
+        e.preventDefault();
+        status.innerHTML = '<p style="color:#9a3412;font-weight:700">The inquiry form is not connected yet. Please replace the Formspree placeholder endpoint before publishing.</p>';
+      }
+    });
+  </script>
+</body>
+</html>
